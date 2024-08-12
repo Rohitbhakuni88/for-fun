@@ -19,6 +19,8 @@
             align-items: center;
             font-family: Arial, sans-serif;
             color: white;
+            margin: 0;
+            overflow: hidden; /* Hide overflow to keep text within the screen */
         }
 
         /* Text styling */
@@ -29,12 +31,13 @@
             max-width: 800px;
         }
 
-        /* Optional: Animation for scrolling text (replacement for marquee) */
+        /* Animation for scrolling text */
         .scrolling-text {
             overflow: hidden;
             white-space: nowrap;
             box-sizing: border-box;
             animation: scroll 10s linear infinite;
+            position: relative;
         }
 
         @keyframes scroll {
@@ -45,15 +48,46 @@
                 transform: translateX(-100%);
             }
         }
+
+        /* Magic erase effect */
+        .erase {
+            opacity: 0;
+            transform: scale(0);
+            transition: opacity 2s ease-out, transform 2s ease-out;
+        }
     </style>
 </head>
 <body>
     <div class="content">
+        
         <h1>Agam Sharma</h1>
         <hr>
-        <div class="scrolling-text">
-            <p>Hello world, I am Hacker</p>
+        <div class="scrolling-text" id="scrollingText">
+            <!-- Words will be inserted here dynamically -->
         </div>
     </div>
+
+    <script>
+        const text = "Hello world, I am Hacker";
+        const words = text.split(" ");
+        const scrollingTextContainer = document.getElementById("scrollingText");
+
+        // Insert each word into the container
+        words.forEach((word, index) => {
+            const span = document.createElement("span");
+            span.textContent = word + " ";
+            scrollingTextContainer.appendChild(span);
+
+            // Apply magic erase effect after 1 second for each word
+            setTimeout(() => {
+                span.classList.add("erase");
+            }, 1000 * (index + 1)); // Adjust timing for each word
+        });
+    </script>
+    <!-- <a href ="https://cdn.wallpapersafari.com/55/87/MbwFGH.jpg" ><img src="https://cdn.wallpapersafari.com/55/87/MbwFGH.jpg"></a> -->
+    <ul>
+        <li>AGAM Sharma</li>
+        <li>S+++++</li>
+    </ul>
 </body>
 </html>
