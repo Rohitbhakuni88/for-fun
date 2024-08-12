@@ -1,38 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>kingofworls</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>King of World</title>
     <style>
-        /* Set the background image for the entire page */
+        /* Styling for the body */
         body {
-            margin: 0;
-            padding: 0;
-            height: 100vh; /* Ensure the body takes up the full height of the viewport */
-            background-image: url('https://cdn.wallpapersafari.com/55/87/MbwFGH.jpg'); /* URL to the background image */
-            background-size: cover; /* Make sure the image covers the entire background */
-            background-position: center; /* Center the image */
-            background-repeat: no-repeat; /* Prevent the image from repeating */
-            background-attachment: fixed; /* Make the background image fixed (doesn't scroll) */
-        }
-        .content {
-            color: white;
-            text-align: center;
-            padding-top: 20%;
+            height: 100vh;
+            background-image: url('https://cdn.wallpapersafari.com/55/87/MbwFGH.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
             font-family: Arial, sans-serif;
+            color: white;
+        }
+
+        /* Text styling */
+        .content {
+            text-align: center;
+            font-size: 24px;
+            line-height: 1.5;
+            max-width: 800px;
+        }
+
+        /* Optional: Animation for scrolling text (replacement for marquee) */
+        .scrolling-text {
+            overflow: hidden;
+            white-space: nowrap;
+            box-sizing: border-box;
+            animation: scroll 10s linear infinite;
+        }
+
+        @keyframes scroll {
+            0% {
+                transform: translateX(100%);
+            }
+            100% {
+                transform: translateX(-100%);
+            }
         }
     </style>
 </head>
-<body bgcolor="black" text="white">
-    <h1 align="center">Agam Sharma</h1>
-    <hr>
-    <marquee> 
-        <p>hello world i am chutiya</p>
-    </marquee>
-    
-
-    
+<body>
+    <div class="content">
+        <h1>Agam Sharma</h1>
+        <hr>
+        <div class="scrolling-text">
+            <p>Hello world, I am Hacker</p>
+        </div>
+    </div>
 </body>
 </html>
