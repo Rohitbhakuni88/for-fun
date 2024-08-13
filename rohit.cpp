@@ -28,3 +28,24 @@ signed main() {
     
     }
 }
+// 6
+// 8
+// bacedbab
+// 4
+// baba
+// 13
+// daddecabeddad
+// 3
+// dac
+// 6
+// dacdac
+// 22
+// dababbabababbabbababba
+// output
+// ba.ced.bab
+// ba.ba
+// dad.de.ca.bed.dad
+// dac
+// dac.dac
+// da.bab.ba.ba.bab.bab.ba.bab.ba
+
