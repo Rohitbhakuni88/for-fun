@@ -5,7 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>King of World</title>
     <style>
-        /* Styling for the body */
+        /* Smooth scrolling for the entire page */
+        html {
+            scroll-behavior: smooth;
+        }
+        
         body {
             height: 100vh;
             background-image: url('https://cdn.wallpapersafari.com/55/87/MbwFGH.jpg');
@@ -20,10 +24,9 @@
             font-family: Arial, sans-serif;
             color: white;
             margin: 0;
-            overflow: hidden; /* Hide overflow to keep text within the screen */
+            overflow: hidden;
         }
 
-        /* Text styling */
         .content {
             text-align: center;
             font-size: 24px;
@@ -31,7 +34,6 @@
             max-width: 800px;
         }
 
-        /* Animation for scrolling text */
         .scrolling-text {
             overflow: hidden;
             white-space: nowrap;
@@ -49,7 +51,6 @@
             }
         }
 
-        /* Magic erase effect */
         .erase {
             opacity: 0;
             transform: scale(0);
@@ -59,8 +60,7 @@
 </head>
 <body>
     <div class="content">
-        
-        <h1>Rohit Bhakuni</h1>
+        <h1>Agam Sharma</h1>
         <hr>
         <div class="scrolling-text" id="scrollingText">
             <!-- Words will be inserted here dynamically -->
@@ -81,13 +81,40 @@
             // Apply magic erase effect after 1 second for each word
             setTimeout(() => {
                 span.classList.add("erase");
-            }, 1000 * (index + 1)); // Adjust timing for each word
+            }, 1000 * (index + 1));
         });
+
+        // Example of programmatically scrolling to the scrolling text
+        setTimeout(() => {
+            document.getElementById("scrollingText").scrollIntoView({
+                behavior: 'smooth'
+            });
+        }, 5000);
     </script>
-    <!-- <a href ="https://cdn.wallpapersafari.com/55/87/MbwFGH.jpg" ><img src="https://cdn.wallpapersafari.com/55/87/MbwFGH.jpg"></a> -->
+
+    <audio controls width="100px" height="50px">
+        <source src="horse.ogg" type="audio/ogg">
+        <source src="lovesong.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+    
+    <video controls width="200px" height="200px">
+        <source src="https://youtu.be/zwlCeWUGlE0?si=k7z0kJZ6RFMzgslF.mp4">
+        <source src="TOM.mp4" type="video/mp4">
+        Your browser does not support the video element.
+    </video>
+    
+    <iframe width="420" height="315"
+        src="https://youtu.be/zwlCeWUGlE0?si=iFM2VJn--npShxRg">
+    </iframe>
+    
     <ul>
         <li>AGAM Sharma</li>
         <li>S+++++</li>
     </ul>
+
+    <table color="white">
+        <tr><th>s.no.</th></tr>
+    </table>
 </body>
 </html>
