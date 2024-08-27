@@ -3,85 +3,55 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Time Table</title>
+    <title>Multiplication Table Generator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 50vh;
+            background-color: white;
+            
+        }
+        #tableGenerator {
+            text-align: center;
+            background-color: yellowgreen;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px ;
+            border: 5px solid black;
+        }
+        input, button, textarea {
+            padding: 10px;
+            margin: 10px;
+            border-radius: 5px;
+            border: 5px solid black;
+            
+            max-width: 300px;
+        }
+        textarea {
+            height: 100px;
+            
+        }
+    </style>
 </head>
 <body>
-    <table border="1" cellpadding="5" cellspacing="0">
-        <tr>
-            <th colspan="10">NOIDA INSTITUTE OF ENGINEERING & TECHNOLOGY, GREATER NOIDA (ERP)</th>
-        </tr>
-        <tr>
-            <th colspan="10">TIME TABLE : CYS_5 &nbsp;&nbsp;&nbsp; TOTAL LECTURE: 40 &nbsp;&nbsp;&nbsp; TOTAL ASSIGNED: 40 &nbsp;&nbsp;&nbsp; TOTAL FREE: NIL &nbsp;&nbsp;&nbsp; CLASS COORDINATOR: MR. DEEPAK SHARMA</th>
-        </tr>
-        <tr>
-            <th>DAYS</th>
-            <th>9:10 AM - 10:00 AM</th>
-            <th>10:00 AM - 10:50 AM</th>
-            <th>10:50 AM - 11:40 AM</th>
-            <th>11:40 AM - 12:30 PM</th>
-            <th>12:30 PM - 1:30 PM</th>
-            <th>1:30 PM - 2:30 PM</th>
-            <th>2:30 PM - 3:20 PM</th>
-            <th>3:20 PM - 4:10 PM</th>
-            <th>4:10 PM - 5:00 PM</th>
-        </tr>
-        <tr>
-            <td>MONDAY</td>
-            <td>COI</td>
-            <td>EH</td>
-            <td>WT</td>
-            <td>CSE</td>
-            <td rowspan="5">LUNCH</td>
-            <td>DT-II</td>
-            <td></td>
-            <td>PYT / DA</td>
-            <td>DP / BIDV</td>
-        </tr>
-        <tr>
-            <td>TUESDAY</td>
-            <td>DP / BIDV</td>
-            <td>CSE</td>
-            <td></td>
-            <td>EH LAB</td>
-            <td></td>
-            <td>EH</td>
-            <td>PYT / DA</td>
-            <td>MOOCS</td>
-        </tr>
-        <tr>
-            <td>WEDNESDAY</td>
-            <td>DT-II</td>
-            <td>CSE</td>
-            <td></td>
-            <td>COI</td>
-            <td>INTERN</td>
-            <td></td>
-            <td>PYT / DA</td>
-            <td>DP / BIDV</td>
-        </tr>
-        <tr>
-            <td>THURSDAY</td>
-            <td>COI</td>
-            <td></td>
-            <td>CSE LAB</td>
-            <td>MM</td>
-            <td></td>
-            <td>CSE</td>
-            <td>PYT / DA</td>
-            <td>EH</td>
-        </tr>
-        <tr>
-            <td>FRIDAY</td>
-            <td>DP / BIDV</td>
-            <td>EH</td>
-            <td></td>
-            <td>WT LAB</td>
-            <td>DT-II</td>
-            <td>CC</td>
-            <td>PYT / DA</td>
-            <td>DP / BIDV</td>
-        </tr>
-    </table>
+    <div id="tableGenerator">
+        <h1>Multiplication Table Generator</h1>
+        <input type="number" id="number" placeholder="Enter a number">
+        <button onclick="generateTable()">Generate Table</button>
+        <textarea id="result" readonly></textarea>
+    </div>
+    <script>
+        function generateTable() {
+            const number = parseInt(document.getElementById('number').value);
+            let result = '';
+            for (let i = 1; i <= 10; i++) {
+                result += `${number} x ${i} = ${number * i}\n`;
+            }
+            document.getElementById('result').value = result;
+        }
+    </script>
 </body>
 </html>
-http://127.0.0.1/day1/love/love.html
