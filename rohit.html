@@ -3,54 +3,123 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Multiplication Table Generator</title>
+    <title>Registration Form</title>
     <style>
         body {
             font-family: Arial, sans-serif;
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 50vh;
-            background-color: white;
-            
+            height: 1000vh;
+            width: 100%;
+            background-color: #f2f2f2;
         }
-        #tableGenerator {
-            text-align: center;
+        form {
             background-color: yellowgreen;
             padding: 20px;
             border-radius: 8px;
-            box-shadow: 0 0 10px ;
-            border: 5px solid black;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            border: 7px solid black;
         }
-        input, button, textarea {
+        form .radio-group{
+            flex-direction: column;
+        }
+        input, select, textarea {
             padding: 10px;
-            margin: 10px;
+            
+            width: 75%;
             border-radius: 5px;
             border: 5px solid black;
-            
-            max-width: 300px;
         }
-        textarea {
-            height: 100px;
+        button {
+            
+            
+            width: 100%;
+            border-radius: 5px;
+            border: none;
+            background-color: black;
+            color: #fff;
+        }
+        label{
+            display: block;
             
         }
+
     </style>
 </head>
 <body>
-    <div id="tableGenerator">
-        <h1>Multiplication Table Generator</h1>
-        <input type="number" id="number" placeholder="Enter a number">
-        <button onclick="generateTable()">Generate Table</button>
-        <textarea id="result" readonly></textarea>
-    </div>
+    <form onsubmit="return validateForm()">
+        <h1>Registration</h1>
+        <input type="text" id="name" placeholder="Full Name">
+        <input type="text" id="doj" placeholder="Date of Joining (YYYY-MM-DD)">
+        <input type="email" id="email" placeholder="Email ID">
+        <input type="tel" id="phone" placeholder="Phone Number">
+        <textarea id="address" placeholder="Address"></textarea>
+        <input type="text" id="pincode" placeholder="Pin Code">
+        
+        <label for="male">Male</label>
+        <input type="radio" id="male" name="gender" value="Male">
+        
+            
+        <label for="female">Female</label>
+        <input type="radio" id="female" name="gender" value="Female">
+        
+            
+        <label for="other">Other</label>
+        <input type="radio" id="other" name="gender" value="Other">
+        <select id="state">
+            <option value="">Select State</option>
+            <option value="State1">State1</option>
+            <option value="State2">State2</option>
+        </select>
+        <button type="submit">Submit</button>
+        <button type="button" onclick="resetForm()">Reset</button>
+    </form>
     <script>
-        function generateTable() {
-            const number = parseInt(document.getElementById('number').value);
-            let result = '';
-            for (let i = 1; i <= 10; i++) {
-                result += `${number} x ${i} = ${number * i}\n`;
+        function validateForm() {
+            const name = document.getElementById('name').value;
+            const doj = document.getElementById('doj').value;
+            const email = document.getElementById('email').value;
+            const phone = document.getElementById('phone').value;
+            const pincode = document.getElementById('pincode').value;
+            const gender = document.querySelector('input[name="gender"]:checked');
+            const state = document.getElementById('state').value;
+
+            if (!/^[a-zA-Z\s]+$/.test(name)) {
+                alert('Invalid Name');
+                return false;
             }
-            document.getElementById('result').value = result;
+            if (!/^\d{4}-\d{2}-\d{2}$/.test(doj)) {
+                alert('Invalid Date of Joining');
+                return false;
+            }
+            if (!/^\S+@\S+\.\S+$/.test(email)) {
+                alert('Invalid Email ID');
+                return false;
+            }
+            if (!/^\d{10}$/.test(phone)) {
+                alert('Invalid Phone Number');
+                return false;
+            }
+            if (!/^\d{6}$/.test(pincode)) {
+                alert('Invalid Pin Code');
+                return false;
+            }
+            if (!gender) {
+                alert('Please select a gender');
+                return false;
+            }
+            if (!state) {
+                alert('Please select a state');
+                return false;
+            }
+            alert('Registration Successful!');
+            return false; 
+        }
+
+        function resetForm() {
+            document.querySelector('form').reset();
         }
     </script>
 </body>
